@@ -31,7 +31,7 @@ public class DetalheServico implements Serializable{
 	private double valor;
 	
 	
-	
+	//chave estrangeira id_ordemServico
 	
 	
 

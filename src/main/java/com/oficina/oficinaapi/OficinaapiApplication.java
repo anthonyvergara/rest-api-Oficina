@@ -16,7 +16,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @ComponentScan(basePackages = {"com.*"}) // injecao de dependencia para controlar os objetos
 @EnableJpaRepositories(basePackages = {"com.oficina.repository"}) // interface para persistencia do jpa ex: crud
 @EnableTransactionManagement // controle de transacoes no banco de dados, evitar erros na hora de inserir ou varias requisicoes ao mesmo tempo
-@EnableWebMvc //ativa recurso de mvc - porem esse projeto de aula so usa rest
+@EnableWebMvc //ativa recurso de mvc - porem esse projeto so usa rest
 @RestController // para o projeto identificar que é uma aplicacao rest e os controllers retornarem json
 @EnableAutoConfiguration // configura todo o projeto para manipulacoes de classes, dependencias, faz tudo funcionar no projeto
 public class OficinaapiApplication {

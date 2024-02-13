@@ -1,7 +1,6 @@
 package com.oficina.model;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
@@ -10,20 +9,18 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Pagamento implements Serializable{
-
+public class DonoOficina extends Pessoa implements Serializable{
+	
+	
 	private static final long serialVersionUID = 1L;
-	
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	private double valorPago;
+	private String usuario;
 	
-	private Date dataPagamento;
-	
-	//chave estrangeira id_OrdemServico
+	private String senha;
 
 	public Long getId() {
 		return id;
@@ -33,20 +30,20 @@ public class Pagamento implements Serializable{
 		this.id = id;
 	}
 
-	public double getValorPago() {
-		return valorPago;
+	public String getUsuario() {
+		return usuario;
 	}
 
-	public void setValorPago(double valorPago) {
-		this.valorPago = valorPago;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
-	public Date getDataPagamento() {
-		return dataPagamento;
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setDataPagamento(Date dataPagamento) {
-		this.dataPagamento = dataPagamento;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	@Override
@@ -62,10 +59,9 @@ public class Pagamento implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Pagamento other = (Pagamento) obj;
+		DonoOficina other = (DonoOficina) obj;
 		return Objects.equals(id, other.id);
 	}
 	
 	
-
 }

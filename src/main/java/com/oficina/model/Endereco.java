@@ -1,7 +1,6 @@
 package com.oficina.model;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
@@ -10,20 +9,22 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Pagamento implements Serializable{
+public class Endereco implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	
+
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	private double valorPago;
+	private String rua;
 	
-	private Date dataPagamento;
+	private int numero;
 	
-	//chave estrangeira id_OrdemServico
+	private String postcode;
+	
+	private String cidade;
 
 	public Long getId() {
 		return id;
@@ -33,20 +34,36 @@ public class Pagamento implements Serializable{
 		this.id = id;
 	}
 
-	public double getValorPago() {
-		return valorPago;
+	public String getRua() {
+		return rua;
 	}
 
-	public void setValorPago(double valorPago) {
-		this.valorPago = valorPago;
+	public void setRua(String rua) {
+		this.rua = rua;
 	}
 
-	public Date getDataPagamento() {
-		return dataPagamento;
+	public int getNumero() {
+		return numero;
 	}
 
-	public void setDataPagamento(Date dataPagamento) {
-		this.dataPagamento = dataPagamento;
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public String getPostcode() {
+		return postcode;
+	}
+
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
 	}
 
 	@Override
@@ -62,10 +79,9 @@ public class Pagamento implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Pagamento other = (Pagamento) obj;
+		Endereco other = (Endereco) obj;
 		return Objects.equals(id, other.id);
 	}
 	
 	
-
 }

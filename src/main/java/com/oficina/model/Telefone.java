@@ -1,7 +1,6 @@
 package com.oficina.model;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
@@ -10,20 +9,19 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Pagamento implements Serializable{
+public class Telefone implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	private double valorPago;
+	private String country;
 	
-	private Date dataPagamento;
+	private int ddd;
 	
-	//chave estrangeira id_OrdemServico
+	private Long numero;
 
 	public Long getId() {
 		return id;
@@ -33,20 +31,28 @@ public class Pagamento implements Serializable{
 		this.id = id;
 	}
 
-	public double getValorPago() {
-		return valorPago;
+	public String getCountry() {
+		return country;
 	}
 
-	public void setValorPago(double valorPago) {
-		this.valorPago = valorPago;
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
-	public Date getDataPagamento() {
-		return dataPagamento;
+	public int getDdd() {
+		return ddd;
 	}
 
-	public void setDataPagamento(Date dataPagamento) {
-		this.dataPagamento = dataPagamento;
+	public void setDdd(int ddd) {
+		this.ddd = ddd;
+	}
+
+	public Long getNumero() {
+		return numero;
+	}
+
+	public void setNumero(Long numero) {
+		this.numero = numero;
 	}
 
 	@Override
@@ -62,7 +68,7 @@ public class Pagamento implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Pagamento other = (Pagamento) obj;
+		Telefone other = (Telefone) obj;
 		return Objects.equals(id, other.id);
 	}
 	

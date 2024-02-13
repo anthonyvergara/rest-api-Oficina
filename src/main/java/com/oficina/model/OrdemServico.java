@@ -31,7 +31,8 @@ public class OrdemServico implements Serializable{
 	
 	private String observacao;
 	
-	
+	//chave estrangeira id_cliente
+	//chave estrangeira id_DonoOficina
 	
 	
 
