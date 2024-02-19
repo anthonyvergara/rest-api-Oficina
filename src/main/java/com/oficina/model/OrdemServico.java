@@ -2,12 +2,19 @@ package com.oficina.model;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
+import org.hibernate.annotations.ForeignKey;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class OrdemServico implements Serializable{
@@ -31,21 +38,52 @@ public class OrdemServico implements Serializable{
 	
 	private String observacao;
 	
-	//chave estrangeira id_cliente
-	//chave estrangeira id_DonoOficina
+	@ForeignKey(name="id_cliente")
+	@ManyToOne
+	private Cliente cliente;
 	
+	@ForeignKey(name = "id_oficina")
+	@ManyToOne
+	private Oficina oficina;
 	
+	@OneToMany(mappedBy = "ordemServico", orphanRemoval = true, cascade = CascadeType.ALL)
+	private List<DetalheServico> detalheServico = new ArrayList<DetalheServico>();
 
-	public Long getId_OrdemServico() {
-		return id;
+	
+	public List<DetalheServico> getDetalheServico() {
+		return detalheServico;
 	}
 
-	public void setId_OrdemServico(Long id) {
-		this.id = id;
+	public void setDetalheServico(List<DetalheServico> detalheServico) {
+		this.detalheServico = detalheServico;
+	}
+
+	public Oficina getOficina() {
+		return oficina;
+	}
+
+	public void setOficina(Oficina oficina) {
+		this.oficina = oficina;
 	}
 
 	public Long getInvoiceNumber() {
 		return invoiceNumber;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	public void setInvoiceNumber(Long invoiceNumber) {

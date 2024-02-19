@@ -1,12 +1,16 @@
 package com.oficina.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Cliente extends Pessoa implements Serializable{
@@ -24,6 +28,17 @@ public class Cliente extends Pessoa implements Serializable{
 	private Long passaporte;
 	
 	private Long rg;
+	
+	@OneToMany(mappedBy = "cliente", orphanRemoval = true, cascade = CascadeType.ALL)
+	private List<OrdemServico> ordemServico = new ArrayList<OrdemServico>();
+
+	public List<OrdemServico> getOrdemServico() {
+		return ordemServico;
+	}
+
+	public void setOrdemServico(List<OrdemServico> ordemServico) {
+		this.ordemServico = ordemServico;
+	}
 
 	public Long getId() {
 		return id;

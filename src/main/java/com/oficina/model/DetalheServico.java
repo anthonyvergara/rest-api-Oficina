@@ -4,10 +4,13 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.Objects;
 
+import org.hibernate.annotations.ForeignKey;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class DetalheServico implements Serializable{
@@ -30,10 +33,18 @@ public class DetalheServico implements Serializable{
 	
 	private double valor;
 	
+	@ForeignKey(name = "id_ordemServico")
+	@ManyToOne
+	private OrdemServico ordemServico;
 	
-	//chave estrangeira id_ordemServico
-	
-	
+
+	public OrdemServico getOrdemServico() {
+		return ordemServico;
+	}
+
+	public void setOrdemServico(OrdemServico ordemServico) {
+		this.ordemServico = ordemServico;
+	}
 
 	public Long getId() {
 		return id;
