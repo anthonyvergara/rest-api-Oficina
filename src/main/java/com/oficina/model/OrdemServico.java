@@ -48,8 +48,30 @@ public class OrdemServico implements Serializable{
 	
 	@OneToMany(mappedBy = "ordemServico", orphanRemoval = true, cascade = CascadeType.ALL)
 	private List<DetalheServico> detalheServico = new ArrayList<DetalheServico>();
-
 	
+	@OneToMany(mappedBy = "ordemServico", orphanRemoval = true, cascade = CascadeType.ALL)
+	private List<Pagamento> pagamento  = new ArrayList<Pagamento>();
+
+	@OneToMany(mappedBy = "ordemServico", orphanRemoval = true, cascade = CascadeType.ALL)
+	private List<StatusOrdemServico> statusOrdemServico = new ArrayList<StatusOrdemServico>();
+	
+	
+	public List<StatusOrdemServico> getStatusOrdemServico() {
+		return statusOrdemServico;
+	}
+
+	public void setStatusOrdemServico(List<StatusOrdemServico> statusOrdemServico) {
+		this.statusOrdemServico = statusOrdemServico;
+	}
+
+	public List<Pagamento> getPagamento() {
+		return pagamento;
+	}
+
+	public void setPagamento(List<Pagamento> pagamento) {
+		this.pagamento = pagamento;
+	}
+
 	public List<DetalheServico> getDetalheServico() {
 		return detalheServico;
 	}
