@@ -3,10 +3,13 @@ package com.oficina.model;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.hibernate.annotations.ForeignKey;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Telefone implements Serializable{
@@ -22,6 +25,18 @@ public class Telefone implements Serializable{
 	private int ddd;
 	
 	private Long numero;
+	
+	@ForeignKey(name = "id_pessoa")
+	@ManyToOne
+	private Pessoa pessoa;
+
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
 
 	public Long getId() {
 		return id;

@@ -30,9 +30,27 @@ public class Pessoa implements Serializable {
 	
 	private String email;
 	
-	@OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = CascadeType.ALL) // terminar aqui....
+	@OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = CascadeType.ALL)
 	private List<Telefone> telefone = new ArrayList<Telefone>();
-	//chave estrangeira id_Endereco.....
+	
+	@OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = CascadeType.ALL)
+	private List<Endereco> endereco = new ArrayList<Endereco>();
+
+	public List<Telefone> getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(List<Telefone> telefone) {
+		this.telefone = telefone;
+	}
+
+	public List<Endereco> getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(List<Endereco> endereco) {
+		this.endereco = endereco;
+	}
 
 	public Long getId() {
 		return id;
