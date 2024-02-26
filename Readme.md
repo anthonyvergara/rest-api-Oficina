@@ -1,2 +1,3 @@
-Projeto Gestão de Oficina V2 Java Web.
+Projeto Gestão de Oficina V2 RESTful Java Web.
+Tecnologias:
 Sistema em construção.......
