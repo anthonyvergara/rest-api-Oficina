@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.oficina.model.Usuario;
+import com.oficina.repository.UsuarioRepoGeneric;
 import com.oficina.repository.UsuarioRepository;
 import com.oficina.service.UsuarioService;
 
