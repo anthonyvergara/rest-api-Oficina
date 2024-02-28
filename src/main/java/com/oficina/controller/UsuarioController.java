@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.oficina.model.Usuario;
-import com.oficina.repository.UsuarioRepoGeneric;
 import com.oficina.repository.UsuarioRepository;
 import com.oficina.service.UsuarioService;
 
@@ -51,6 +50,23 @@ public class UsuarioController {
 		return new ResponseEntity(usuarios, HttpStatus.BAD_REQUEST);
 		
 	}*/
+	@GetMapping(value = "/todos", produces = "application/json")
+	public ResponseEntity<List<Usuario>> listarUsuarios(){
+		
+		List<Usuario> user = usuarioService.findAll();
+		
+		return new ResponseEntity(user, HttpStatus.OK);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@GetMapping(value = "/usuarios", produces = "application/json")
 	public ResponseEntity<List<Usuario>> usuarios() {
 		

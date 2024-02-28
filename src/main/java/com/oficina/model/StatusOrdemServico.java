@@ -39,8 +39,6 @@ public class StatusOrdemServico implements Serializable{
 	@ManyToOne
 	private OrdemServico ordemServico;
 	
-	
-
 	public OrdemServico getOrdemServico() {
 		return ordemServico;
 	}
