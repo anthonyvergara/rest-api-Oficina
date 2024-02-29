@@ -24,28 +24,20 @@ public class OrdemServicoServiceImpl implements OrdemServicoService{
 	
 	@Override
 	public List<OrdemServico> findAll() {
-		
-		List<OrdemServico> show = new ArrayList<OrdemServico>();
-		for(OrdemServico op: ordemServicoRepository.findAll()) {
-			LocalDate localDate = op.getDataInicio().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-			System.err.println(localDate);
-			show.add(op);
-		}
-		
-		return show;
+		return (List<OrdemServico>) ordemServicoRepository.findAll();
 	}
 	
 
 	@Override
-	public void save(OrdemServico ordemServico) {
+	public OrdemServico save(OrdemServico ordemServico) {
 		// TODO Auto-generated method stub
 		Random invoiceNumber = new Random();
 		ordemServico.setInvoiceNumber(invoiceNumber.nextLong(999999999));
 		
-		Date dataHoje = new Date();
+		LocalDate dataHoje = LocalDate.now();
 		ordemServico.setDataInicio(dataHoje);
 		
-		
+		return ordemServicoRepository.save(ordemServico);
 	}
 
 	@Override

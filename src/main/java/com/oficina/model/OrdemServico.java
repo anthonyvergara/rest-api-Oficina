@@ -1,7 +1,7 @@
 package com.oficina.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -30,7 +30,7 @@ public class OrdemServico implements Serializable{
 	
 	private int vat;
 	
-	private Date dataInicio;
+	private LocalDate dataInicio;
 	
 	private Double valorTotal;
 	
@@ -120,11 +120,11 @@ public class OrdemServico implements Serializable{
 		this.vat = vat;
 	}
 
-	public Date getDataInicio() {
+	public LocalDate getDataInicio() {
 		return dataInicio;
 	}
 
-	public void setDataInicio(Date dataInicio) {
+	public void setDataInicio(LocalDate dataInicio) {
 		this.dataInicio = dataInicio;
 	}
 

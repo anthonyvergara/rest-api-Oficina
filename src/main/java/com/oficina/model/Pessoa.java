@@ -1,10 +1,12 @@
 package com.oficina.model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -27,7 +29,8 @@ public class Pessoa implements Serializable {
 	
 	private String sobrenome;
 	
-	private Date dataNascimento;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private LocalDate dataNascimento;
 	
 	private String email;
 	
@@ -77,11 +80,11 @@ public class Pessoa implements Serializable {
 		this.sobrenome = sobrenome;
 	}
 
-	public Date getDataNascimento() {
+	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
