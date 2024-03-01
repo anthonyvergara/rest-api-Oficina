@@ -14,20 +14,20 @@ import com.oficina.model.OrdemServico;
 import com.oficina.service.OrdemServicoService;
 
 @RestController
-@RequestMapping(value = "ordemservico")
+@RequestMapping(value = "/ordemservico")
 public class OrdemServicoController {
 	
 	@Autowired
 	private OrdemServicoService ordemServicoService;
 	
 	
-	@GetMapping(name = "/", produces = "application/json")
+	@GetMapping(value = "/", produces = "application/json")
 	public ResponseEntity<List<OrdemServico>> listarServicos(){
 		
 		return ResponseEntity.ok(ordemServicoService.findAll());
 	}
 	
-	@PostMapping(name = "/", produces = "application/json")
+	@PostMapping(value = "/", produces = "application/json")
 	public ResponseEntity<OrdemServico> insertOrdemServico(@RequestBody OrdemServico ordemServico){
 		
 		
