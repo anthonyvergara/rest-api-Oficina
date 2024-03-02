@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.oficina.model.Cliente;
 
-public interface ClienteRepository extends CrudRepository<Cliente, Long>{
+public interface ClienteRepository<T> extends CrudRepository<T, Long>{
 
 }

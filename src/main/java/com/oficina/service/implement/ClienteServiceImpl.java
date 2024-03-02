@@ -8,12 +8,13 @@ import org.springframework.stereotype.Service;
 import com.oficina.model.Cliente;
 import com.oficina.repository.ClienteRepository;
 import com.oficina.service.ClienteService;
+import com.oficina.service.GenericService;
 
 @Service
-public class ClienteServiceImpl implements ClienteService{
+public class ClienteServiceImpl implements GenericService<Cliente>{
 	
 	@Autowired
-	private ClienteRepository clienteRepository;
+	private ClienteRepository<Cliente> clienteRepository;
 	
 	@Override
 	public List<Cliente> findAll() {
