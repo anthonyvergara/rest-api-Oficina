@@ -1,7 +1,10 @@
 package com.oficina.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +20,13 @@ public class ClienteController {
 	
 	@Autowired
 	private ClienteService clienteService;
+	
+	@GetMapping(value = "/")
+	private ResponseEntity<List<Cliente>> lista(){
+		
+		
+		return ResponseEntity.ok(clienteService.findAll());
+	}
 	
 	@PostMapping(name = "/")
 	private ResponseEntity<Cliente> insertCliente(@RequestBody Cliente cliente){
