@@ -14,7 +14,7 @@ import com.oficina.service.GenericService;
 public class ClienteServiceImpl implements GenericService<Cliente>{
 	
 	@Autowired
-	private ClienteRepository<Cliente> clienteRepository;
+	private ClienteRepository clienteRepository;
 	
 	@Override
 	public List<Cliente> findAll() {

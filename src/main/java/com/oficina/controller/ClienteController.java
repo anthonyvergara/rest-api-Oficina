@@ -12,23 +12,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.oficina.model.Cliente;
 import com.oficina.service.ClienteService;
+import com.oficina.service.GenericService;
 
 @RestController
-@RequestMapping(value = "cliente")
+@RequestMapping(value = "/cliente")
 public class ClienteController {
 
 	
 	@Autowired
-	private ClienteService clienteService;
+	private GenericService<Cliente> clienteService;
 	
 	@GetMapping(value = "/")
 	private ResponseEntity<List<Cliente>> lista(){
 		
-		
 		return ResponseEntity.ok(clienteService.findAll());
 	}
 	
-	@PostMapping(name = "/")
+	@PostMapping(value = "/")
 	private ResponseEntity<Cliente> insertCliente(@RequestBody Cliente cliente){
 		
 		return ResponseEntity.ok().body(clienteService.save(cliente));
