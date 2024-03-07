@@ -1,11 +1,6 @@
 package com.oficina.service.implement;
 
-import java.text.DateFormat;
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
