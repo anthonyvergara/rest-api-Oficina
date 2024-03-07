@@ -30,7 +30,7 @@ public class OrdemServicoServiceImpl implements OrdemServicoService{
 
 	@Override
 	public OrdemServico save(OrdemServico ordemServico) {
-		// TODO Auto-generated method stub
+		
 		Random invoiceNumber = new Random();
 		ordemServico.setInvoiceNumber(invoiceNumber.nextLong(999999999));
 		
